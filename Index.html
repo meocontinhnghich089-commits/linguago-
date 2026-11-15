@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CloudPC Free</title>
+<style>
+:root{--bg:#081226;--panel:#101d35;--panel2:#142442;--line:#263b60;--blue:#1677ff;--cyan:#19c4ff;--text:#eef5ff;--muted:#9db0d0;--green:#25d98b}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0,#123b78 0,transparent 34%),var(--bg);color:var(--text);font:15px/1.5 "Segoe UI",Arial,sans-serif}
+.app{display:grid;grid-template-columns:240px 1fr;min-height:100vh}.side{padding:22px 14px;border-right:1px solid var(--line);background:#09152a}
+.logo{display:flex;align-items:center;gap:10px;padding:8px 12px 25px;font-size:19px;font-weight:700}.logoicon{font-size:30px;color:#35aaff}
+.nav{display:flex;gap:12px;align-items:center;padding:13px 14px;margin:5px 0;border-radius:12px;color:#c4d4ee;cursor:pointer}.nav.active,.nav:hover{background:linear-gradient(90deg,#1268e8,#1745a0);color:white}
+.sidebottom{margin-top:35px;padding:15px;border:1px solid #28526d;border-radius:14px;background:#10243a;color:#b8d5e8;font-size:13px}
+main{padding:24px;max-width:1500px;width:100%;margin:auto}.hero{border:1px solid #254a7e;border-radius:22px;padding:30px;background:linear-gradient(115deg,#09295a,#0755a8 55%,#092148);position:relative;overflow:hidden;margin-bottom:20px}.hero:after{content:"☁";font-size:190px;position:absolute;right:35px;top:-45px;opacity:.13}.hero h1{font-size:clamp(27px,4vw,43px);margin:0 0 5px}.hero p{color:#d3e7ff;margin:0 0 18px;font-size:17px}.pills{display:flex;gap:20px;flex-wrap:wrap;color:#dcecff;font-size:13px}
+.card{background:linear-gradient(145deg,#101d35,#0c1830);border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:18px}.head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:15px}.head h2{font-size:20px;margin:0}.status{background:#073d32;color:#65f0b4;padding:7px 12px;border-radius:30px;font-size:13px}
+.pcgrid{display:grid;grid-template-columns:260px minmax(280px,1fr) 220px;gap:18px;align-items:stretch}.preview{background:linear-gradient(140deg,#1262bb,#071e50);border-radius:13px;min-height:230px;display:flex;flex-direction:column;justify-content:space-between;padding:16px;overflow:hidden}.desktop{font-size:40px;text-align:center;margin:auto;filter:drop-shadow(0 8px 18px #0008)}.taskbar{background:#08152bcc;border-radius:8px;padding:9px;text-align:center}
+.details h3{margin:0 0 4px}.muted{color:var(--muted);font-size:13px}.rows{margin-top:16px;border:1px solid #263957;border-radius:12px;overflow:hidden}.rowdata{display:grid;grid-template-columns:110px 1fr auto;gap:8px;align-items:center;padding:11px 13px;border-bottom:1px solid #263957}.rowdata:last-child{border:0}.rowdata label{color:#a9bfdf}.value{font-weight:600;overflow-wrap:anywhere}.copy{border:0;background:#1459c7;color:white;padding:7px 10px;border-radius:8px;cursor:pointer}
+.actions{display:flex;flex-direction:column;gap:10px;justify-content:center}.btn{border:1px solid #355078;background:#182a49;color:white;border-radius:12px;padding:13px;cursor:pointer;font-weight:600;text-align:center}.btn.primary{background:linear-gradient(110deg,#167bff,#1453cf);border:0}.btn.red{background:#4a1729;border-color:#85314b;color:#ffb9c9}.btn:disabled{opacity:.5;cursor:not-allowed}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.step{background:#12213b;border:1px solid #263a5d;border-radius:13px;padding:15px}.step b{display:block;margin-bottom:5px}.notice{border:1px solid #806124;background:#322713;color:#ffdf9a;padding:13px 15px;border-radius:12px;margin:12px 0 18px}.footer{color:#8094b6;font-size:12px;text-align:center;padding:12px}
+@media(max-width:950px){.app{grid-template-columns:1fr}.side{display:none}main{padding:14px}.pcgrid{grid-template-columns:1fr}.preview{min-height:180px}.steps{grid-template-columns:1fr}.rowdata{grid-template-columns:90px 1fr auto}}
+</style>
+</head>
+<body><div class="app">
+<aside class="side"><div class="logo"><span class="logoicon">☁▦</span> CloudPC Free</div>
+<div class="nav active">⌂　Trang chủ</div><div class="nav">▣　Máy của tôi</div><div class="nav" onclick="createPC()">＋　Tạo máy mới</div><div class="nav" onclick="document.querySelector('#guide').scrollIntoView({behavior:'smooth'})">▤　Hướng dẫn</div><div class="nav" onclick="alert('Backend chưa được cấu hình.')">⚙　Cài đặt</div>
+<div class="sidebottom">🟢 Trạng thái website<br><b>Giao diện đang hoạt động</b><br><small>Cloud backend: chưa kết nối</small></div></aside>
+<main>
+<section class="hero"><h1>▦ CloudPC Free</h1><p>Tạo Linux Cloud PC, giao diện thân thiện như Windows và kết nối bằng Windows App.</p><div class="pills"><span>⚡ Quản lý dễ dàng</span><span>🛡️ Thông tin minh bạch</span><span>🌐 RDP</span></div></section>
+<div class="notice">⚠️ <b>Chưa có máy chủ cloud thật.</b> Website này là giao diện frontend; chưa thể cấp IP/user/password thật hoặc tạo VPS. Không dùng thông tin mẫu để kết nối Windows App.</div>
+<section class="card"><div class="head"><h2>▣ Máy Cloud PC của bạn</h2><span class="status">● Chưa tạo máy</span></div>
+<div class="pcgrid"><div class="preview"><div>🖥️　This PC<br>🗑️　Recycle Bin<br>🌐　Browser</div><div class="desktop">🪟</div><div class="taskbar">⊞　⌕　▣　🌐　🔊</div></div>
+<div class="details"><h3>Linux Cloud PC</h3><div class="muted">Ubuntu + XFCE (desktop phong cách Windows)</div><div class="rows">
+<div class="rowdata"><label>IP Address</label><span class="value" id="ip">— chưa cấp —</span></div>
+<div class="rowdata"><label>Username</label><span class="value" id="user">—</span></div>
+<div class="rowdata"><label>Password</label><span class="value" id="pass">—</span></div>
+<div class="rowdata"><label>Port (RDP)</label><span class="value">3389</span></div></div></div>
+<div class="actions"><button class="btn primary" onclick="connect()">▦ Kết nối Windows App</button><button class="btn" onclick="createPC()">＋ Tạo Cloud PC</button><button class="btn" onclick="alert('Backend chưa được cấu hình nên chưa có máy để khởi động.')">↻ Khởi động lại</button><button class="btn red" onclick="alert('Chưa có máy thật để xóa.')">⌫ Xóa máy</button></div></div>
+</section>
+<section class="card" id="guide"><div class="head"><h2>🚀 Hướng dẫn kết nối Windows App</h2></div><div class="steps"><div class="step"><b>① Mở Windows App</b>Trên Android hoặc Windows, mở ứng dụng Microsoft Windows App.</div><div class="step"><b>② Thêm PC</b>Chọn Add PC, nhập IP thật, username và password do cloud cấp.</div><div class="step"><b>③ Kết nối</b>Chọn máy vừa thêm và bắt đầu sử dụng desktop Linux.</div></div></section>
+<div class="footer">CloudPC Free • Frontend demo • Không hiển thị credential giả</div>
+</main></div>
+<script>
+function createPC(){alert('Chưa thể tạo Cloud PC thật: cần backend và nhà cung cấp VPS/cloud. Website không tự sinh IP công khai.');}
+function connect(){alert('Chưa có IP/user/password thật. Hãy cấu hình backend và provision Linux + xrdp trước.');}
+</script></body></html>
